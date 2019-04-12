@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>정규 표현식</title>
+</head>
+<body>
+
+
+</body>
+<script>
+//정규식 객체를 생성
+var regex = /script/i
+//문자열 객체를 생성
+var str = "JAvaScript"
+
+if(regex.test(str)){
+	console.log("패턴이 존재합니다.")
+}else{
+	console.log("패턴이 존재하지 않습니다.")
+}
+
+regex=/[a-z]/
+console.log(str.search(regex))
+//소문자 앞 뒤에 + 추가
+console.log(str.replace(regex,'+$&='))
+</script>
+</html>

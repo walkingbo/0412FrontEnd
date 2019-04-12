@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>유효성 검사</title>
+</head>
+<body>
+	<form action="register.jsp" method="post" id="myform">
+
+		<p>
+			이름<input type="text" id="name" /> <span id="namespan"></span>
+		</p>
+
+		<p>
+			주민등록번호<input type="text" id="jumin" /> <span id="juminspan"></span>
+		</p>
+
+		<input type="submit" value="회원가입" />
+
+	</form>
+
+</body>
+<script>
+
+	try {
+		var ar = new Array(-1)
+	} catch (e) {
+		alert(e.message)
+		
+	}
+	alert("메세지 출력")
+
+	var f = document.getElementById("myform")
+	var n = document.getElementById("name")
+	var namespan = document.getElementById("namespan")
+	var jumin = document.getElementById("jumin")
+	var juminspan = document.getElementById("juminspan")
+
+	f.addEventListener("submit", function(e) {
+		//이벤트 객체 만들기
+		var event = e || window.event
+		//이름은 한글 2자 이상으로 입력
+		var namereg = /[가-힣]{2,}/
+		if (namereg.test(n.value)) {
+			namespan.innerHTML = "사용 가능한 이름입니다."
+		} else {
+			namespan.innerHTML = "이름은 한글 2자 이상이어야 합니다."
+			event.preventDefault()
+		}
+		//주민번호 숫자6개 - 숫자7개
+		var juminreg = /\d{6}-[0-9]{7}/
+		if (juminreg.test(jumin.value)) {
+			juminspan.innerHTML = "사용 가능한 주민등록 번호입니다."
+		} else {
+			juminspan.innerHTML = "주민등록번호 형식이 아닙니다"
+			event.preventDefault()
+		}
+
+	})
+</script>
+</html>

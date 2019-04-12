@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 작성 위치</title>
+<script>
+//body 태그의 내용을 전부 읽고 메모리에 적재 후 호출되는 이벤트가 window의 load
+window.onload = function(){
+document.getElementById("second").innerHTML =
+	"스크립트를 body 위에 작성"
+console.log("먼저 수행?")
+}
+</script>
+
+
+</head>
+<body>
+	<div id="first"></div>
+		<div id="second"></div>
+</body>
+</html>
+<script>
+document.getElementById("first").innerHTML =
+	"스크립트를 body 아래에 작성"
+	console.log("나중에 수행")
+</script>
